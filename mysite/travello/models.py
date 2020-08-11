@@ -10,3 +10,10 @@ class Destination(models.Model):
     price= models.IntegerField(null=True)
     offer = models.BooleanField(default=False)
 
+    def __str__(self):
+        return self.name
+
+    def delete(self, *args, **kwargs):
+        self.img.delete()
+        super().delete(*args, **kwargs)
+
